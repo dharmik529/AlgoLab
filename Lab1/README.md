@@ -8,6 +8,8 @@ of two numbers.__
 The time complexity of Euclid's GCD algorithm that I implemented is O(log(min(int1, int2))), where int1 and int2 are the two integers for which you are trying to find the greatest common divisor. This is because the algorithm repeatedly divides the larger number by the smaller number until the remainder is zero, and the number of times this division must be performed is logarithmic in the smaller of the two numbers.
 
 ```python
+import time
+
 gcd = lambda int1, int2: int1 if int2 == 0 else gcd(int2, int1 % int2)
 
 int1 : int
@@ -16,14 +18,19 @@ int2 : int
 int1 = int(input('Enter first integer: '))
 int2 = int(input('Enter second integer: '))
 
-print(gcd(int1, int2))
+start_time = time.process_time()
+greatest_common_divisor = gcd(int1, int2)
+gcd_time = time.process_time() - start_time
 
+print(greatest_common_divisor)
+print(f'Time taken: {gcd_time}')
 ```
 __Output__
 ```
-    Enter first integer: 48
-    Enter second integer: 60
-    12
+Enter first integer: 42
+Enter second integer: 12
+6
+Time taken: 3.500000000000031e-05
 ```
 
 
