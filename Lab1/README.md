@@ -169,3 +169,11 @@ Minimum element: 1
 Maximum element: 1000
 Time to find min and max in 10000 elements: 0.0024640560150146484
 ```
+
+The time complexity to find minimum element is O(n) where n is the number of elements in the list. This is because we need to look at each element once to find the minimum.
+
+The time complexity to find maximum element is also O(n) for the same reason. We need to look at each element once.
+
+The actual CPU time to find min and max grows linearly with the input size showing the linear time complexity.
+
+In summary, the divide and conquer algorithm divides the problem into smaller subproblems, solves them recursively and combines the solutions to get the result. This leads to an overall linear time complexity for finding min and max.
