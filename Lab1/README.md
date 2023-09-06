@@ -87,7 +87,7 @@ def main():
     time_10000 = time.process_time() - start_time
     print(f'Time taken for 10000 elements: {time_10000}')
 ```
-
+**OUTPUT**
 ```
 For 1000 elements
  Max: 996
@@ -104,9 +104,9 @@ algorithm took longer to process the larger array (10000 elements) compared to t
 the time complexity is linear (O(n)) and directly proportional to the number of elements in the array.
 
 ### Exercise 3
-Write a program to find maximum and minimum element in a list (or an array) using Divide and Conquer
+__Write a program to find maximum and minimum element in a list (or an array) using Divide and Conquer
 strategy and analyze the time complexity. Also, calculate the actual CPU time it took find the minimum
-and maximum elements.
+and maximum elements.__
 
 Steps to perform Divide and Conquer
 1. To use divide and conquer as an algorithm design technique, you must divide the problem into two
@@ -117,3 +117,55 @@ Divide-and conquer is a general algorithm design paradigm:
 1. Divide: divide the input data S in two or more disjoint subsets S1, S2, ...
 2. Recurrence: solve the sub problems recursively
 3. Conquer: combine the solutions for S1, S2, ..., into a solution for S.
+
+```python
+import time
+import random
+
+def find_min_max(arr, low, high):
+    if low == high: 
+        return arr[low], arr[high]
+
+    if high - low == 1:
+        if arr[low] < arr[high]:
+            return arr[low], arr[high]
+        else:
+            return arr[high], arr[low]
+    
+    mid = (low + high) // 2
+
+    min1, max1 = find_min_max(arr, low, mid)
+    min2, max2 = find_min_max(arr, mid+1, high)
+
+    return min(min1, min2), max(max1, max2)
+
+if __name__ == '__main__':
+    n = 1000
+    arr = [random.randint(1, 1000) for i in range(n)]
+
+    start = time.time()
+    min_element, max_element = find_min_max(arr, 0, n-1)
+    end = time.time()
+    print("Minimum element:", min_element)
+    print("Maximum element:", max_element)
+    print("Time to find min and max in", n, "elements:", end - start)
+
+    n = 10000
+    arr = [random.randint(1, 1000) for i in range(n)]
+
+    start = time.time()
+    min_element, max_element = find_min_max(arr, 0, n-1)
+    end = time.time()
+    print("Minimum element:", min_element) 
+    print("Maximum element:", max_element)
+    print("Time to find min and max in", n, "elements:", end - start)
+```
+**OUTPUT**
+```
+Minimum element: 1
+Maximum element: 999
+Time to find min and max in 1000 elements: 0.00022029876708984375
+Minimum element: 1
+Maximum element: 1000
+Time to find min and max in 10000 elements: 0.0024640560150146484
+```
