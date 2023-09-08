@@ -69,3 +69,39 @@ complexities.**
     | Insertion Sort | O(n)      | O(n^2)     |
     | Selection Sort | O(n^2)    | O(n^2)     |
     | Bubble Sort    | O(n)      | O(n^2)     |
+
+## Exercise 2 
+**Create a database with the following details for at least 20 students and store it as a text file:**
+- StudentID
+- first name
+- last name
+- email
+- Major
+
+1. Write a program to read the data from the text file. Choose an appropriate data type and data structure (lists, lists of list, dictionary) for storing the information in your program.
+    ```python
+    students = [] 
+
+    with open('students.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+
+        for row in reader:
+            student = {
+                'id': row[0],
+                'first_name': row[1],
+                'last_name': row[2], 
+                'email': row[3],
+                'major': row[4]
+            }
+            students.append(student)
+    ```
+2. Write a function which takes a parameter and sorts the entire list of students and displays all the details of all students. Your function should sort the list using student id or first name or last name. Implement the sorting using selection sort, insertion sort, bubble sort and merge sort, and print out how much cpu time it took to sort the data. You can import a library to calculate the time. Show an example for searching a value using linear search. Table-2: Tabulate your recorded time for the linear search and all the four sorting algorithms i.e., selection sort, insertion sort, bubble sort and merge sort.
+
+    | Algorithm      | CPU Time Taken         |
+    |----------------|------------------------|
+    | Selection Sort | 3.1948089599609375e-05 |
+    | Insertion Sort | 6.198883056640625e-06  |
+    | Bubble Sort    | 2.7894973754882812e-05 |
+    | Merge Sort     | 2.8133392333984375e-05 |
+    | Linear Sort    | 1.9073486328125e-06    |
