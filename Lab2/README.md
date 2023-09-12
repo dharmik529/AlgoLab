@@ -42,7 +42,7 @@ complexities.**
         arr[j + 1] = key
     ```
 4. Selection Sort
-    ```
+    ```python
     def selection_sort(arr):
     for i in range(len(arr)):
         min_idx = i
