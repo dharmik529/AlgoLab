@@ -1,105 +1,123 @@
 import time
 import csv
-
-students = [] 
-
-with open('students.csv', 'r') as file:
-    reader = csv.reader(file)
-    next(reader)
-
-    for row in reader:
-        student = {
-            'id': row[0],
-            'first_name': row[1],
-            'last_name': row[2], 
-            'email': row[3],
-            'major': row[4]
-        }
-        students.append(student)
+import random
 
 # Selection sort
-start = time.time()
-for i in range(len(students)):
-    min_idx = i
-    for j in range(i+1, len(students)):
-        if students[min_idx]['id'] > students[j]['id']:
-            min_idx = j     
-    students[i], students[min_idx] = students[min_idx], students[i]
-end = time.time()
-sel_time = end - start
-print("Selection sort time: ", sel_time)
+def selection_sort(students):
+    n = len(students)
+    for i in range(n - 1):
+        min_idx = i
+        for j in range(i + 1, n):
+            if students[j]['student_id'] < students[min_idx]['student_id']:
+                min_idx = j
+        students[i], students[min_idx] = students[min_idx], students[i]
 
 # Insertion sort
-start = time.time() 
-for i in range(1, len(students)):
-    key = students[i]
-    j = i-1
-    while j >=0 and key['id'] < students[j]['id']:
-        students[j+1] = students[j]
-        j -= 1
-    students[j+1] = key
-end = time.time()
-ins_time = end - start
-print("Insertion sort time: ", ins_time) 
+def insertion_sort(students):
+    for i in range(1, len(students)):
+        key = students[i]
+        j = i - 1
+        while j >= 0 and students[j]['student_id'] > key['student_id']:
+            students[j + 1] = students[j]
+            j -= 1
+        students[j + 1] = key
 
 # Bubble sort
-start = time.time()
-for i in range(len(students)):
-    for j in range(0, len(students)-i-1):
-        if students[j]['id'] > students[j+1]['id']:
-            students[j], students[j+1] = students[j+1], students[j] 
-end = time.time()
-bub_time = end - start
-print("Bubble sort time: ", bub_time)
+def bubble_sort(students):
+    n = len(students)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if students[j]['student_id'] > students[j + 1]['student_id']:
+                students[j], students[j + 1] = students[j + 1], students[j]
 
-# Merge sort 
-def merge(left, right):
-    result = []
-    i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i]['id'] <= right[j]['id']:
-            result.append(left[i])
+# Merge sort
+def merge_sort(students):
+    if len(students) > 1:
+        mid = len(students) // 2
+        left_half = students[:mid]
+        right_half = students[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i]['student_id'] < right_half[j]['student_id']:
+                students[k] = left_half[i]
+                i += 1
+            else:
+                students[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            students[k] = left_half[i]
             i += 1
-        else:
-            result.append(right[j])
+            k += 1
+
+        while j < len(right_half):
+            students[k] = right_half[j]
             j += 1
-    
-    result += left[i:]
-    result += right[j:]
-    return result
-
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid]) 
-    right = merge_sort(arr[mid:])
-    
-    return merge(left, right)
-
-start = time.time()
-sorted_students = merge_sort(students)  
-end = time.time()
-mer_time = end - start
-print("Merge sort time: ", mer_time)
+            k += 1
 
 # Linear search
-def linear_search(arr, target):
-    for i in range(len(arr)):
-        if arr[i]['id'] == target:
-            return i
-    return -1 
+def linear_search(students, target_id):
+    for student in students:
+        if student['student_id'] == target_id:
+            return student
+    return None
 
-start = time.time()  
-index = linear_search(students, '93421')
-end = time.time()
-lin_time = end - start
-print("Linear search time: ", lin_time)
+# Function to measure CPU time for sorting and linear search
+def measure_time_sort_and_search(students, sorting_algorithm, search_id):
+    start_time = time.process_time()
+    
+    if sorting_algorithm == 'selection':
+        selection_sort(students)
+    elif sorting_algorithm == 'insertion':
+        insertion_sort(students)
+    elif sorting_algorithm == 'bubble':
+        bubble_sort(students)
+    elif sorting_algorithm == 'merge':
+        merge_sort(students)
 
-print("\nResults:")
-print("Selection sort time: ", sel_time)
-print("Insertion sort time: ", ins_time) 
-print("Bubble sort time: ", bub_time)
-print("Merge sort time: ", mer_time)
-print("Linear search time: ", lin_time)
+    end_time = time.process_time()
+    
+    search_start_time = time.process_time()
+    found_student = linear_search(students, search_id)
+    search_end_time = time.process_time()
+    
+    return end_time - start_time, search_end_time - search_start_time, found_student
+
+# Main function
+if __name__ == "__main__":
+    search_id = random.randint(100, 120)
+
+    students = []
+    with open('students.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header row
+
+        for row in reader:
+            student = {
+                'student_id': int(row[0]),
+                'first_name': row[1],
+                'last_name': row[2],
+                'email': row[3],
+                'major': row[4]
+            }
+            students.append(student)
+    
+    sorting_algorithms = ['selection', 'insertion', 'bubble', 'merge']
+    print(f"Searching for student with ID {search_id}...\n")
+    
+    for algorithm in sorting_algorithms:
+        sort_time, search_time, found_student = measure_time_sort_and_search(students.copy(), algorithm, search_id)
+        print(f"Sorting Algorithm: {algorithm.capitalize()} Sort")
+        print(f"Sort Time: {sort_time} seconds")
+        print(f"Search Time: {search_time} seconds")
+        if found_student:
+            print(f"Found Student: {found_student['first_name']} {found_student['last_name']} (ID: {found_student['student_id']})")
+        else:
+            print(f"Student with ID {search_id} not found.")
+        print("\n")
