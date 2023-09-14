@@ -62,7 +62,7 @@ complexities.**
     ```
 
 6. Tabulate 
-\
+<br>
     **Table 1**
     | Algorithm      | Best Case | Worst Case |
     |----------------|-----------|------------|
@@ -99,7 +99,7 @@ complexities.**
             students.append(student)
     ```
 2. Write a function which takes a parameter and sorts the entire list of students and displays all the details of all students. Your function should sort the list using student id or first name or last name. Implement the sorting using selection sort, insertion sort, bubble sort and merge sort, and print out how much cpu time it took to sort the data. You can import a library to calculate the time. Show an example for searching a value using linear search. Table-2: Tabulate your recorded time for the linear search and all the four sorting algorithms i.e., selection sort, insertion sort, bubble sort and merge sort.
-\
+<br>
     **Table 2**
     All searching for student with ID: 104
 
