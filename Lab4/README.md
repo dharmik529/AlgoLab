@@ -20,3 +20,35 @@ Write down the algorithm and implement a priority queue (both min and max) using
 3. In the worst case, describe the runtime to change the priority of an element (find an element and change the priority of the element).
 
 Show an example for each.
+
+### Exercise 2 
+Write down the algorithm and implement a priority queue (both min and max) using a linked list of elements. Determine the runtime for each of the following:
+
+1. In the worst case, describe the runtime to insert an item into the priority queue.
+2. In the worst case, describe the runtime to remove the element with highest priority.
+3. In the worst case, describe the runtime to change the priority of an element.
+
+Show an example for each.
+
+### Exercise 3 
+Write down the algorithm and implement a priority queue (both min and max) using a heap tree-based data structure (both min and max). Determine the runtime for each of the following:
+
+1. In the worst case, describe the runtime to insert an item into the priority queue.
+2. In the worst case, describe the runtime to remove the element with highest priority.
+3. In the worst case, describe the runtime to change the priority of an element.
+
+Show an example for each.
+
+### Exercise 4 
+Tabulate to compare the time complexity of insert, remove and change priority operations for array/linked list/ heap priority queues.
+
+### Exercise 5 
+Write a paragraph about what have you learnt from this lab exercises?
+
+### Deliverables
+
+- Codes
+- Report with algorithms, screenshots of results for each exercise and conclusion
+- Attach the codes as appendix in your Report
+- Recorded zoom video (~5 minutes) explaining the difference in implementation of priority queues using different data structures and also demonstrate the working of the program.
+
