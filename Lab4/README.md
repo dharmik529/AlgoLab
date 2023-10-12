@@ -53,11 +53,28 @@ Write down the algorithm and implement a priority queue (both min and max) using
 
 Show an example for each.
 
+**Runtime complexities are:**
+1. Insert: In a binary heap-based implementation, insertion takes O(log N) time in the worst case, where N is the number of elements in the heap. This is because you may need to perform "up-heap" operations to maintain the heap property.
+2. Delete: Deletion, which includes finding and removing the element with the highest priority, also takes O(log N) time in the worst case. This is because you need to perform "down-heap" operations to maintain the heap property after removing the root element.
+3. Change: Changing the priority of an element involves finding the item in the heap and then possibly performing heap operations. Finding the element is O(N) in the worst case, and then the subsequent heapify operation is O(log N).
+
+Heap-based priority queues are efficient for many practical use cases because they maintain the highest or lowest priority element at the root, allowing quick access to it. The worst-case time complexities described here are based on a balanced heap.
+
 ### Exercise 4 
 Tabulate to compare the time complexity of insert, remove and change priority operations for array/linked list/ heap priority queues.
 
+| **Operation** | **Array**    | **Linked-List** | **Min-Heap** | **Max-Heap** |
+|---------------|--------------|-----------------|--------------|--------------|
+| Insertion     | O(1) or O(N) | O(N)            | O(log N)     | O(log N)     |
+| Deletion      | O(N) or O(1) | O(1)            | O(log N)     | O(log N)     |
+| Changing      | O(N)         | O(N)            | O(N + log N) | O(N + log N) |
+
+
+
 ### Exercise 5 
 Write a paragraph about what have you learnt from this lab exercises?
+
+In summary, the choice of data structure depends on the specific use case and the relative importance of different operations. Arrays and linked lists are straightforward to implement but may not be the most efficient choice for large priority queues. Heap-based structures provide better performance for insert and remove operations, but changing the priority remains relatively expensive. The choice between min-heap and max-heap depends on whether you need the highest or lowest priority element to be easily accessible.
 
 ### Deliverables
 
