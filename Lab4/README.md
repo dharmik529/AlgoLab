@@ -23,8 +23,8 @@ Show an example for each.
 
 **Runtime complexities are:**
 1. Insert: When inserting an item, the worst-case runtime occurs when the item needs to be moved to the root of the heap (due to higher priority) or all the way down to the last level. This results in a time complexity of O(log N), where N is the number of elements in the priority queue.
-2. In the worst case, when you delete an item, you need to perform the heapify operation to maintain the heap property. This operation also has a time complexity of O(log N) as it involves moving elements within the heap.
-3. In the worst case, you might need to move an element up to the root or all the way down to the last level, which is also O(log N).
+2. Delete: In the worst case, when you delete an item, you need to perform the heapify operation to maintain the heap property. This operation also has a time complexity of O(log N) as it involves moving elements within the heap.
+3. Change: In the worst case, you might need to move an element up to the root or all the way down to the last level, which is also O(log N).
 
 These time complexities assume a balanced heap, and in practice, heaps provide efficient operations for priority queues. However, it's important to note that these are worst-case complexities, and the average-case performance might be better, depending on the distribution of priorities and items.
 
@@ -36,6 +36,13 @@ Write down the algorithm and implement a priority queue (both min and max) using
 3. In the worst case, describe the runtime to change the priority of an element.
 
 Show an example for each.
+
+**Runtime complexities are:**
+1. Insert: In the worst case, for insertion, you may need to traverse the entire linked list to find the correct position for the new element. This results in a time complexity of O(N), where N is the number of elements in the priority queue.
+2. Delete: Deletion involves updating the head of the linked list. This operation has a time complexity of O(1) in the worst case.
+3. Change: Changing the priority involves searching for the element in the linked list and rearranging it if its priority has increased. In the worst case, this operation is O(N) because you may need to traverse the entire list to find the item.
+
+These time complexities reflect the worst-case scenario and assume no additional data structures or optimizations. Linked list implementations are less efficient than heap-based implementations for large priority queues, but they are straightforward to implement and suitable for small-sized priority queues or when dynamic resizing is not a concern.
 
 ### Exercise 3 
 Write down the algorithm and implement a priority queue (both min and max) using a heap tree-based data structure (both min and max). Determine the runtime for each of the following:
