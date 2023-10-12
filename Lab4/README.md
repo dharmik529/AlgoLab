@@ -21,6 +21,13 @@ Write down the algorithm and implement a priority queue (both min and max) using
 
 Show an example for each.
 
+**Runtime complexities are:**
+1. Insert: O(n) - Need to sort the entire array after each insert in worst case
+2. Remove highest priority: O(1) - Just pop from the front of the array
+3. Change priority: O(n) - Need to find the element first (linear search) and then resort the array
+
+The priority queue operations have O(n) runtime in the worst case using an array implementation because of the need to search and sort the array. More efficient implementations use heaps or specialized tree data structures.
+
 ### Exercise 2 
 Write down the algorithm and implement a priority queue (both min and max) using a linked list of elements. Determine the runtime for each of the following:
 
