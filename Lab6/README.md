@@ -56,28 +56,28 @@ The time complexity of the DFS algorithm is O(V + E), where V is the number of v
 
 **Advantages of BFS:**
 
-    - **Shortest Path:** BFS is guaranteed to find the shortest path from the starting node to any other node in an unweighted graph. This makes it suitable for path-finding problems.
-    - **Completeness:** BFS is guaranteed to find a solution if one exists. It explores all nodes at the current level before moving to the next level, ensuring that all possibilities are considered.
-    - **Topological Sorting:** BFS can be used to perform topological sorting of a directed acyclic graph (DAG), which is essential in various applications, such as scheduling tasks or compiling code.
-    - **Memory Efficiency:** In some cases, BFS may be more memory-efficient than DFS, as it only needs to store the nodes at the current level.
+- **Shortest Path:** BFS is guaranteed to find the shortest path from the starting node to any other node in an unweighted graph. This makes it suitable for path-finding problems.
+- **Completeness:** BFS is guaranteed to find a solution if one exists. It explores all nodes at the current level before moving to the next level, ensuring that all possibilities are considered.
+- **Topological Sorting:** BFS can be used to perform topological sorting of a directed acyclic graph (DAG), which is essential in various applications, such as scheduling tasks or compiling code.
+- **Memory Efficiency:** In some cases, BFS may be more memory-efficient than DFS, as it only needs to store the nodes at the current level.
 
 **Disadvantages of BFS:**
 
-    - **Memory Consumption:** BFS can be memory-intensive, especially when dealing with large or densely connected graphs, as it needs to store all nodes at the current level.
-    - **Not Suitable for Very Deep Graphs:** In graphs with many levels or a deep structure, BFS might be impractical due to the large amount of memory required.
+- **Memory Consumption:** BFS can be memory-intensive, especially when dealing with large or densely connected graphs, as it needs to store all nodes at the current level.
+- **Not Suitable for Very Deep Graphs:** In graphs with many levels or a deep structure, BFS might be impractical due to the large amount of memory required.
 
 **Advantages of DFS:**
 
-    - **Memory Efficiency:** DFS is often more memory-efficient than BFS, especially for deep graphs or graphs with many branches, as it explores one branch fully before moving to the next.
-    - **Simplicity:** DFS is relatively simple to implement using recursion or a stack. It doesn't require as much overhead as BFS.
-    - **Topological Sorting:** Like BFS, DFS can be used to perform topological sorting of a DAG.
-    - **Detecting Cycles:** DFS is suitable for cycle detection in a graph. If a back edge is encountered while traversing, it indicates the presence of a cycle.
+- **Memory Efficiency:** DFS is often more memory-efficient than BFS, especially for deep graphs or graphs with many branches, as it explores one branch fully before moving to the next.
+- **Simplicity:** DFS is relatively simple to implement using recursion or a stack. It doesn't require as much overhead as BFS.
+- **Topological Sorting:** Like BFS, DFS can be used to perform topological sorting of a DAG.
+- **Detecting Cycles:** DFS is suitable for cycle detection in a graph. If a back edge is encountered while traversing, it indicates the presence of a cycle.
 
 **Disadvantages of DFS:**
 
-    - **Completeness:** DFS may not find a solution even if one exists, especially in infinite graphs or graphs with infinite branches. It can get stuck in deep branches before exploring shallow ones.
-    - **Path Length:** DFS does not guarantee finding the shortest path, as it explores one branch deeply before exploring other branches.
-    - **Not Suitable for Unweighted Shortest Paths:** For unweighted graphs, DFS can be less efficient than BFS in finding the shortest path.
+- **Completeness:** DFS may not find a solution even if one exists, especially in infinite graphs or graphs with infinite branches. It can get stuck in deep branches before exploring shallow ones.
+- **Path Length:** DFS does not guarantee finding the shortest path, as it explores one branch deeply before exploring other branches.
+- **Not Suitable for Unweighted Shortest Paths:** For unweighted graphs, DFS can be less efficient than BFS in finding the shortest path.
 
 5. Discus in detail an application of BFS and DFS
 
