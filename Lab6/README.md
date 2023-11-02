@@ -54,26 +54,26 @@ The time complexity of the DFS algorithm is O(V + E), where V is the number of v
 
 4. Discuss the advantages and disadvantages of BFS and DFS.
 
-    **Advantages of BFS:**
+**Advantages of BFS:**
 
         1. **Shortest Path:** BFS is guaranteed to find the shortest path from the starting node to any other node in an unweighted graph. This makes it suitable for path-finding problems.
         2. **Completeness:** BFS is guaranteed to find a solution if one exists. It explores all nodes at the current level before moving to the next level, ensuring that all possibilities are considered.
         3. **Topological Sorting:** BFS can be used to perform topological sorting of a directed acyclic graph (DAG), which is essential in various applications, such as scheduling tasks or compiling code.
         4. **Memory Efficiency:** In some cases, BFS may be more memory-efficient than DFS, as it only needs to store the nodes at the current level.
 
-    **Disadvantages of BFS:**
+**Disadvantages of BFS:**
 
         1. **Memory Consumption:** BFS can be memory-intensive, especially when dealing with large or densely connected graphs, as it needs to store all nodes at the current level.
         2. **Not Suitable for Very Deep Graphs:** In graphs with many levels or a deep structure, BFS might be impractical due to the large amount of memory required.
 
-    **Advantages of DFS:**
+**Advantages of DFS:**
 
         1. **Memory Efficiency:** DFS is often more memory-efficient than BFS, especially for deep graphs or graphs with many branches, as it explores one branch fully before moving to the next.
         2. **Simplicity:** DFS is relatively simple to implement using recursion or a stack. It doesn't require as much overhead as BFS.
         3. **Topological Sorting:** Like BFS, DFS can be used to perform topological sorting of a DAG.
         4. **Detecting Cycles:** DFS is suitable for cycle detection in a graph. If a back edge is encountered while traversing, it indicates the presence of a cycle.
 
-    **Disadvantages of DFS:**
+**Disadvantages of DFS:**
 
         1. **Completeness:** DFS may not find a solution even if one exists, especially in infinite graphs or graphs with infinite branches. It can get stuck in deep branches before exploring shallow ones.
         2. **Path Length:** DFS does not guarantee finding the shortest path, as it explores one branch deeply before exploring other branches.
