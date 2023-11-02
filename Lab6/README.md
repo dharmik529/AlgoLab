@@ -30,7 +30,27 @@ Draw a sketch of the above graphs and attach the screenshot here.
 2. Develop a python program implementing Breadth First Search (BFS) algorithm. Perform a BFS on the above graphs from the previous question and attach the screenshot of the program and results here. 
 Derive the time complexity of the BFS algorithm.
 
+**OUTPUT:**
+```
+BFS on graph1:
+a d f c b e
+BFS on graph2:
+a d f c b e
+```
+
+The time complexity of the BFS algorithm is O(V + E), where V is the number of vertices (nodes) and E is the number of edges in the graph. In the worst case, the BFS algorithm visits every vertex and edge once, which results in a linear time complexity.
+
 3. Develop a python program implementing Depth First Search (DFS) algorithm. Perform a DFS on the above graphs from the previous question and attach the screenshot of the program and results here. Derive the time complexity of the DFS algorithm.
+
+**OUTPUT:**
+```
+DFS on graph1:
+a d c b e f
+DFS on graph2:
+a d c b e f  
+```
+
+The time complexity of the DFS algorithm is O(V + E), where V is the number of vertices (nodes) and E is the number of edges in the graph. In the worst case, the DFS algorithm visits every vertex and edge once, which results in a linear time complexity.
 
 4. Discuss the advantages and disadvantages of BFS and DFS.
 
