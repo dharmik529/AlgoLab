@@ -10,16 +10,22 @@ graph1 = { "a" : ["d","f"],
            "d" : ["a", "c"],
            "e" : ["c"],
            "f" : ["a"]
-    }
+         }
 graph2 = { "a" : ["d","f"],
            "b" : ["c","b"],
            "c" : ["b", "c", "d", "e"],
            "d" : ["a", "c"],
            "e" : ["c"],
            "f" : ["a"]
-    }
+         }
 ```
 Draw a sketch of the above graphs and attach the screenshot here.
+
+**Graph1:**
+!["Graph1"](./images/Graph1.jpeg)
+
+**Graph2:**
+!["Graph2"](./images/Graph2.jpeg) 
 
 2. Develop a python program implementing Breadth First Search (BFS) algorithm. Perform a BFS on the above graphs from the previous question and attach the screenshot of the program and results here. 
 Derive the time complexity of the BFS algorithm.
